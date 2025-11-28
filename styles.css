@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* RESET */
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+body {
+  background-color: black;
+  overflow-x: hidden;
+}
+
+/* =================== GLOBAL BACKGROUND FOR ALL SECTIONS =================== */
+section {
+  width: 100%;
+  padding: 80px 0;
+  background-image: url(images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =================== SECTION BOX =================== */
+.section-box {
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 60px 0;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+#hero .section-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 60%, rgb(4, 61, 42));
+  z-index: 1;
+}
+
+.content-wrap {
+  padding: 30px 60px;
+  z-index: 2;
+  position: relative;
+}
+
+/* =================== HEADER =================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.header-logo span {
+  color: #00FF26;
+}
+
+nav {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-items {
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+nav .active {
+  color: #00FF26;
+}
+
+/* underline hover */
+.nav-items::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  background: white;
+  transition: 0.3s;
+}
+
+.nav-items:hover::after {
+  transform: scaleX(1);
+}
+
+/* =================== HERO =================== */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.hero-content h3 {
+  font-size: 2rem;
+  letter-spacing: 20px;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  font-size: 6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  margin-top: -10px;
+}
+
+.hero-img {
+  width: 40%;
+  max-width: 420px;
+  margin-top: 0;              /* >>> FIXED <<< */
+  animation: planetAn 120s linear infinite;
+}
+
+/* =================== UNIVERSAL BUTTON FIX =================== */
+.hero-btn,
+.action-btn,
+.join-btn,
+button,
+a.btn {
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 40px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s;
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+}
+
+/* HERO BTN */
+.hero-btn {
+  background: transparent;
+  border: 2px solid white;
+}
+.hero-btn:hover {
+  background: white;
+  color: black;
+  box-shadow: 0 0 15px #00FF26;
+}
+
+/* ACTION BTN */
+.action-btn {
+  background: #00FF26;
+  color: black;
+}
+.action-btn:hover {
+  background: #00d11f;
+  box-shadow: 0 0 15px #00FF26;
+}
+
+/* JOIN BTN */
+.join-btn {
+  background: #00FF26;
+  color: black;
+  padding: 14px 55px;
+}
+.join-btn:hover {
+  background: #00d11f;
+  box-shadow: 0 0 15px #00FF26;
+}
+
+/* =================== ABOUT / PROJECTS =================== */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 50px;
+  gap: 40px;
+}
+
+.section-sub {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #00FF26;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+#about p,
+#projects p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgb(220, 220, 220);
+}
+
+.about-img {
+  width: 90%;
+  opacity: 0;
+  animation: zoomIn 1.4s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* =================== JOIN FORM =================== */
+.join-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.join-form input,
+.join-form textarea {
+  width: 60%;
+  padding: 12px 20px;
+  border-radius: 40px;
+  border: 1px solid white;
+  background: transparent;
+  font-size: 16px;
+  color: white; /* optional: makes text visible if background is dark */
+  outline: none; /* removes default focus outline */
+}
+
+.join-form textarea {
+  min-height: 120px; /* makes textarea taller */
+  resize: vertical; /* allows vertical resize only */
+}
+
+.join-btn {
+  padding: 12px 30px;
+  border-radius: 40px;
+  border: none;
+  background-color: #fff; /* change as needed */
+  color: #000; /* button text color */
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.join-btn:hover {
+  background-color: #ddd; /* hover effect */
+}
+
+/* =================== FOOTER =================== */
+#footer {
+  padding: 60px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 50px;
+  gap: 40px;
+}
+
+.footer-items {
+  font-size: 16px;
+  color: rgb(200, 200, 200);
+  margin: 5px 0;
+  cursor: pointer;
+  transition: .3s;
+}
+.footer-items:hover {
+  color: white;
+  text-shadow: 0 0 10px #00FF26;
+}
+
+copyrights {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* =================== ANIMATIONS =================== */
+@keyframes planetAn {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
